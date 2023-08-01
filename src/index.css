@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   padding: 0;
@@ -12,6 +13,9 @@ body {
   overflow-x: scroll;
   min-height: 300px;
   max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .ui.grid > .row.bot-army-row {
@@ -21,4 +25,21 @@ body {
 
 .ui.grid {
   padding: 0px 20px;
+}
+.bot-army-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.bot-card,
+.bot-card-army {
+  flex: 0 0 20%;
+}
+
+
+
+.bot-card.selected,
+.bot-card-army.selected {
+  flex: 0 0 40%;
 }

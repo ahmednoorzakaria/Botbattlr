@@ -2,16 +2,21 @@ import React from "react";
 import BotCard from "./BotCard";
 
 function BotCollection({ bots, enlistBot, deleteBot }) {
-  const botItem = bots.map((bot) => (
+  function handleEnlistBot(bot) {
+    enlistBot(bot);
+  }
+
+  const botItems = bots.map((bot) => (
     <BotCard
       key={bot.id}
       bot={bot}
-      clickEvent={enlistBot}
+      clickEvent={handleEnlistBot}
       deleteBot={deleteBot}
+      isSelected={false}
     />
   ));
 
-  return <div className="bot-collection-container">{botItem}</div>;
+  return <div className="bot-collection-container">{botItems}</div>;
 }
 
 export default BotCollection;

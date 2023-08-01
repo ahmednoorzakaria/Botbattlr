@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const botTypeClasses = {
   Assault: "icon military",
   Defender: "icon shield",
@@ -10,12 +9,13 @@ const botTypeClasses = {
   Captain: "icon star",
 };
 
-function BotCard({ bot, clickEvent, deleteBot, army }) {
+function BotCard({ bot, clickEvent, deleteBot, army, isSelected }) {
   const botClassName = army ? "bot-card-army" : "bot-card";
+  const selectedClassName = isSelected ? "selected" : "";
 
   return (
     <div
-      className={botClassName}
+      className={`${botClassName} ${selectedClassName}`}
       onClick={() => clickEvent(bot)}
       style={{ borderColor: bot.army ? "green" : "black" }}
     >
@@ -35,16 +35,15 @@ function BotCard({ bot, clickEvent, deleteBot, army }) {
         <div className="extra content">
           <span>
             <i className="icon heartbeat" />
-            {bot.health}
+            Health: {bot.health}
           </span>
-
           <span>
             <i className="icon lightning" />
-            {bot.damage}
+            Damage: {bot.damage}
           </span>
           <span>
             <i className="icon shield" />
-            {bot.armor}
+            Armor: {bot.armor}
           </span>
           <span>
             <div className="ui center aligned segment basic">
@@ -55,7 +54,7 @@ function BotCard({ bot, clickEvent, deleteBot, army }) {
                   deleteBot(bot);
                 }}
               >
-                x
+                Delete
               </button>
             </div>
           </span>
